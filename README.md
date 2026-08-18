@@ -11,6 +11,12 @@ A no-dependency static site for three writing exercises, ready for GitHub Pages.
    node build.js
    ```
 
+   Or rebuild automatically while writing:
+
+   ```sh
+   node watch.js
+   ```
+
 3. Publish the generated `exercise-*.html` files with `styles.css` and `script.js`.
 
 ## Markdown fields
@@ -27,4 +33,4 @@ The default label is `Your response`. Customize it with:
 {{word-counter:What are you thinking?}}
 ```
 
-The generated field counts words live as the user types. `styles.css` controls the responsive layout and `script.js` powers the counter.
+The converter also supports headings (`#`–`######`), bullet lists (`- item`), **bold**, *italics*, and `monospace`. The generated field counts words live as the user types. `styles.css` controls the responsive layout and `script.js` powers the counter.

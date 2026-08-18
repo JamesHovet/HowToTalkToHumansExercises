@@ -16,8 +16,10 @@ h1 { max-width:700px; margin:0; font-size:clamp(2.5rem, 7vw, 5.5rem); line-heigh
 .back-link { display:inline-block; margin-bottom:64px; color:var(--muted); text-decoration:none; }
 .back-link:hover { color:var(--ink); }
 .prompt { margin:28px 0 44px; }
+ul { max-width:620px; margin:28px 0 44px; padding-left:1.4rem; color:var(--ink); font-size:1.08rem; line-height:1.7; }
+code { padding:.15em .35em; color:#24352d; background:#e6ebe5; border-radius:4px; font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size:.9em; }
 label { display:block; margin-bottom:10px; font-size:.8rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; }
 textarea { width:100%; min-height:300px; padding:20px; resize:vertical; color:var(--ink); background:#fff; border:1px solid var(--line); border-radius:14px; outline:none; font:inherit; font-size:1rem; line-height:1.7; }
 textarea:focus { border-color:#75a882; box-shadow:0 0 0 4px #d9efdf; }
-.counter { margin:12px 0 0; color:var(--muted); font-size:.9rem; }
+.counter { margin:12px 0 44px; color:var(--muted); font-size:.9rem; }
 @media (max-width:640px) { .shell { width:min(100% - 32px, 760px); padding-top:40px; } .exercise-grid { grid-template-columns:1fr; } .exercise-card { min-height:125px; } .back-link { margin-bottom:48px; } }

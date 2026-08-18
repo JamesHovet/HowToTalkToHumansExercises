@@ -12,9 +12,23 @@ function markdownToHtml(markdown) {
       const label = counter[1] || 'Your response';
       return `<label for="response">${label}</label><textarea id="response" data-word-counter placeholder="Begin writing here…"></textarea><p class="counter" aria-live="polite"><span data-count>0</span> words</p>`;
     }
-    if (text.startsWith('# ')) return `<h1>${text.slice(2)}</h1>`;
-    return `<p class="prompt">${text.replace(/\n/g, ' ')}</p>`;
+    const heading = text.match(/^(#{1,6})\s+(.+)$/);
+    if (heading) return `<h${heading[1].length}>${inlineMarkdown(heading[2])}</h${heading[1].length}>`;
+    if (text.split('\n').every((line) => /^[-*+]\s+/.test(line))) {
+      const items = text.split('\n').map((line) => `<li>${inlineMarkdown(line.replace(/^[-*+]\s+/, ''))}</li>`).join('');
+      return `<ul>${items}</ul>`;
+    }
+    return `<p class="prompt">${inlineMarkdown(text.replace(/\n/g, ' '))}</p>`;
   }).join('\n');
+}
+
+function inlineMarkdown(text) {
+  return text
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/__([^_]+)__/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    .replace(/_([^_]+)_/g, '<em>$1</em>');
 }
 
 function page(title, body) {
