@@ -1,6 +1,6 @@
 # Exercise 1
 
-For a given production issue, write a short message to each of the following audiences: Your fellow engineers, the relevant product manager, the "money people", and your Director/VP. 
+For a given production issue, write a short message to each of the following audiences: Your fellow engineers, the relevant product manager, and your Director/VP. 
 
 Don't worry about polish or style, just focus on identifying the the different content for each audience. 
 
@@ -13,7 +13,7 @@ Don't worry about polish or style, just focus on identifying the the different c
 - The incorrect amount appears only on the “Next payout” card; payout details and completed payout history show the correct amount.
 - Sellers who click from the card into payout details see a different, correct number.
 - We checked 38 affected sellers against `CoreLedger`. In all 38 cases, the amount scheduled for payout was correct and higher than the amount shown in Seller Hub; so far, we have not found an example where the actual payout is wrong.
-- The relevant calculation is in `PendingPayoutCalculator.calculateProjectedNetAmount()`. For transactions using the newer fee model, `FeeBreakdown.getTotalFees()` already includes `regulatoryOperatingFee`, but `calculateProjectedNetAmount()` then subtracts it again.
+- The relevant calculation is in `PendingPayoutCalculator`, `calculateProjectedNetAmount()`. For transactions using the newer fee model, `FeeBreakdown.getTotalFees()` already includes `regulatoryOperatingFee`, but `calculateProjectedNetAmount()` then subtracts it again.
 - The bug was introduced in PR `#4837`, first appeared in production in deployment manifest `20260817T164200Z`, and the first affected transaction we found was processed at `2026-08-17T16:47:13Z`.
 - A query returned `128,641` sellers with pending payouts. `19,284` had at least one transaction using the affected calculation path.
 - Across those `19,284` sellers, Seller Hub is showing a combined `2,731,884.19` less than `CoreLedger`. The median difference is `41.82`, the 95th percentile is `384.67`, and the largest difference found is `6,943.11`.
@@ -27,7 +27,5 @@ Don't worry about polish or style, just focus on identifying the the different c
 {{word-counter: Message to your fellow engineers:}}
 
 {{word-counter: Message to the product manager:}}
-
-{{word-counter: Message to the money people:}}
 
 {{word-counter: Message to your director/VP:}}
