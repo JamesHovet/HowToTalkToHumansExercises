@@ -5,12 +5,15 @@ const root = __dirname;
 const contentDir = path.join(root, 'content');
 
 function markdownToHtml(markdown) {
+  let counterIndex = 0;
   return markdown.trim().split(/\n\s*\n/).map((block) => {
     const text = block.trim();
     const counter = text.match(/^\{\{word-counter(?::(.+))?\}\}$/);
     if (counter) {
+      counterIndex += 1;
+      const id = `response-${counterIndex}`;
       const label = counter[1] || 'Your response';
-      return `<label for="response">${label}</label><textarea id="response" data-word-counter placeholder="Begin writing here…"></textarea><p class="counter" aria-live="polite"><span data-count>0</span> words</p>`;
+      return `<label for="${id}">${label}</label><textarea id="${id}" data-word-counter placeholder="Begin writing here…"></textarea><p class="counter" aria-live="polite"><span data-count>0</span> words</p>`;
     }
     const heading = text.match(/^(#{1,6})\s+(.+)$/);
     if (heading) return `<h${heading[1].length}>${inlineMarkdown(heading[2])}</h${heading[1].length}>`;
