@@ -14,7 +14,7 @@ The revised Riverbank standard introduces shorter default retention periods for 
 
 Riverbank does not require every dataset to use the shortest possible period. Some records must be retained longer for fraud prevention, financial reporting, active disputes, or other legal obligations. Those cases may continue with documented justification and the appropriate review.
 
-{{word-counter: Your BLUF:}}
+{{word-counter: Your BLUF: (approx. 25-60 words)}}
 
 
 ## Target audience: Previous System Owners
@@ -29,7 +29,7 @@ The validation was added in 2019 with the commit message “ensure routing consi
 
 For scheduled revisions, retaining the rule means an additional listing read before every publication. That is manageable, but I would prefer not to build the new workflow around it if the constraint is obsolete.
 
-{{word-counter: Your BLUF:}}
+{{word-counter: Your BLUF: (approx. 25-60 words)}}
 
 ## Target audience: Aurora Project Leads
 
@@ -39,4 +39,4 @@ Analytics has also finished adding the events for opening the panel, selecting a
 
 There are two accessibility issues that came out of the review: selected filters are not always announced correctly by screen readers, and keyboard users lose their position whenever the results refresh. We originally thought we might be able to fix those while the experiment was running, but Accessibility needs to approve the updated behavior first, and between the estimated development time and when the reviewer can look at it again, the earliest slot we can realistically use is September 23 rather than September 9. The mobile-web release team has reserved that slot for us, so we are not waiting for release capacity. This also gives QA more time for regression testing, and Design might make the “More filters” control more noticeable based on the usability feedback. That change is separate from the accessibility work, so we can leave it out if it starts creating more risk.
 
-{{word-counter: Your BLUF:}}
+{{word-counter: Your BLUF: (approx. 25-60 words)}}

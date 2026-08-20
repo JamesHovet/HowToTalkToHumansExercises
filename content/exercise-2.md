@@ -20,4 +20,4 @@ Someone who joined your team a few weeks ago. They understand the general lay of
 
 ### Time: 7 minutes
 
-{{word-counter}}
+{{word-counter: Your Wiki Introduction: (approx. 100-200 words)}}

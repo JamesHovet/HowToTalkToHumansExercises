@@ -24,8 +24,8 @@ Don't worry about polish or style, just focus on identifying the the different c
 - The engineering team has reproduced the issue and has a candidate fix, but it has not yet completed production validation. If it works as expected, existing incorrect estimates should correct themselves the next time the payout summary is recalculated.
 
 
-{{word-counter: Message to your fellow engineers:}}
+{{word-counter: Message to your fellow engineers: (approx. 125-250 words)}}
 
-{{word-counter: Message to the product manager:}}
+{{word-counter: Message to the product manager: (approx 50-125 words)}}
 
-{{word-counter: Message to your director/VP:}}
+{{word-counter: Message to your director/VP: (approx 50-75 words)}}
