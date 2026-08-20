@@ -17,20 +17,6 @@ Riverbank does not require every dataset to use the shortest possible period. So
 {{word-counter: Your BLUF: (approx. 25-60 words)}}
 
 
-## Target audience: Previous System Owners
-
-I’ve been working on scheduled listing revisions in Juniper. The feature lets a seller prepare a change now and publish it at a specified time, which means we store the requested revision and run it later rather than sending it through the usual synchronous path.
-
-While wiring this up, I found that Juniper requires marketContext on every revision. That makes sense for changes involving marketplace-specific fields, but it also applies when the revision only updates something like quantity or a seller note. The synchronous caller gets around this by loading the current listing and copying marketContext into the request.
-
-I initially assumed the requirement came from BrowseIndex, so I traced the publication path through Cedar and Lantern. BrowseIndex ignores the field, Lantern stores it without inspecting it, and Cedar only uses it when currency or shipping-region data changes. What I haven’t been able to determine is whether Juniper’s general requirement protects some older routing behavior that no longer appears in the current code. I’m hoping someone who worked on the original Juniper rollout remembers that decision.
-
-The validation was added in 2019 with the commit message “ensure routing consistency.” The linked design document points to an archived location I cannot access, and the original reviewers are no longer listed in the directory. There are also tests requiring the field, but their names repeat the validation rule rather than describing the scenario behind it.
-
-For scheduled revisions, retaining the rule means an additional listing read before every publication. That is manageable, but I would prefer not to build the new workflow around it if the constraint is obsolete.
-
-{{word-counter: Your BLUF: (approx. 25-60 words)}}
-
 ## Target audience: Aurora Project Leads
 
 I wanted to send an Aurora status update after the conversations this week because there are a few things moving at the same time. The implementation is in a good place overall. Front End has completed the new mobile-web filter layout, and Design checked the latest build on Tuesday. There were some small differences in spacing and capitalization compared with the mockups, but those have either been fixed or added to the cleanup list.
